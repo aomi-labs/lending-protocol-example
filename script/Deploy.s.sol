@@ -41,7 +41,7 @@ contract Deploy {
         uint256 poolUsdc = vm.envOr("SEED_POOL_USDC", 50 ether);
 
         vm.startBroadcast();
-        token = new CollateralToken();
+        token = new CollateralToken(msg.sender);
         amm = new SimpleAMM(token);
         oracle = new PriceOracle(amm);
         pool = new LendingPool(token, oracle);

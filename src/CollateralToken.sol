@@ -18,8 +18,8 @@ contract CollateralToken {
     event Transfer(address indexed from, address indexed to, uint256 value);
     event Approval(address indexed owner, address indexed spender, uint256 value);
 
-    constructor() {
-        minter = msg.sender;
+    constructor(address minter_) {
+        minter = minter_;
     }
 
     /// @notice One-time wiring of the lending pool, done at deployment.
